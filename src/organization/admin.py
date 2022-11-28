@@ -10,4 +10,4 @@ class DivisionAdmin(admin.ModelAdmin):
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ["last_name", "first_name", "patronymic", "division"]
+    list_display = ["last_name", "first_name", "patronymic", "division", "position"]
