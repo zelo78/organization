@@ -26,18 +26,25 @@ Django 3+, Python 3.5+, база на свое усмотрение
  
 Готовое задание, необходимо разместить Github/Bitbucket
 
-## Развёртывание выполненного задания
+## Выполненное задание
+
+### Развёртывание выполненного задания
 
 ```shell
 pip install -Ur src/requirements.txt
 python src/manage.py migrate
 ```
 
+### Запуск локального сервера
+
 ```shell
 python src/manage.py runserver
 ```
 
+### Наполнение базы данных случайными Подразделениями и Сотрудниками
 
-The database must contain at least 50,000 employees and 25 departments in 5 levels of hierarchy. This organization supplies products for various purposes
+(указана команда для 25 подразделений и 50.000 сотрудников)
 
-
+```shell
+python src/manage.py populate -d 25 -e 50000 
+```
