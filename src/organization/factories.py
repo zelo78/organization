@@ -1,9 +1,9 @@
 from datetime import date
 
-from factory import LazyAttribute, Faker
 import faker
+from factory import Faker, LazyAttribute
 from factory.django import DjangoModelFactory
-from factory.fuzzy import FuzzyChoice, FuzzyInteger, FuzzyDate
+from factory.fuzzy import FuzzyChoice, FuzzyDate, FuzzyInteger
 
 from organization.models import Division, Employee
 

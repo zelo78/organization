@@ -1,0 +1,8 @@
+[flake8]
+ignore = E501
+# , W503, F403, F401, C901, W605, E203, E266,
+max-line-length = 88
+max-complexity = 18
+
+include = ./src/*.py
+exclude = *migrations* venv

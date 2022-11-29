@@ -2,8 +2,8 @@ import random
 
 from django.core.management.base import BaseCommand
 
-from organization.models import Employee, Division
-from organization.factories import EmployeeFactory, DivisionFactory
+from organization.factories import DivisionFactory, EmployeeFactory
+from organization.models import Division, Employee
 
 
 class Command(BaseCommand):
@@ -46,10 +46,10 @@ class Command(BaseCommand):
         if divisions_count < divisions:
             for i in range(divisions - divisions_count):
                 head = random.choice(Division.objects.all())
-                division = DivisionFactory(head=head)
+                DivisionFactory(head=head)
 
         # генерируем недостающих сотрудников
         employees_count = Employee.objects.count()
         if employees_count < employees:
             for i in range(employees - employees_count):
-                employee = EmployeeFactory()
+                EmployeeFactory()

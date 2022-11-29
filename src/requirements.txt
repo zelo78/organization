@@ -1,5 +1,7 @@
 django~=4.1
 djangorestframework~=3.14
 black~=22.10
+isort~=5.10
+flake8~=6.0
 factory_boy==3.2.1
 python-dotenv==0.21.0
