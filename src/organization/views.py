@@ -23,7 +23,9 @@ class DivisionsDataView(APIView):
             }
             data.append(item)
         if head is not None:
-            for employee in head.employees.order_by("last_name", "first_name", "patronymic"):
+            for employee in head.employees.order_by(
+                "last_name", "first_name", "patronymic"
+            ):
                 item = {
                     "label": employee.full_name,
                     "isFolder": False,
