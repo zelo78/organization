@@ -1,0 +1,50 @@
+{% extends "organization/base.html" %}
+{% load static %}
+
+{% block head_title %}Карточка сотрудника{% endblock head_title %}
+
+{% block content %}
+    <h1>Карточка сотрудника</h1>
+    <table class="table table-sm table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Параметр</th>
+                <th>Значение</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Фамилия</td>
+                <td>{{ employee.last_name }}</td>
+            </tr>
+            <tr>
+                <td>Имя</td>
+                <td>{{ employee.first_name }}</td>
+            </tr>
+            <tr>
+                <td>Отчество</td>
+                <td>{{ employee.patronymic }}</td>
+            </tr>
+            <tr>
+                <td>Возраст</td>
+                <td>{{ employee.age }}</td>
+            </tr>
+            <tr>
+                <td>Дата приёма на работу</td>
+                <td>{{ employee.date_of_employment }}</td>
+            </tr>
+            <tr>
+                <td>Подразделение</td>
+                <td>{{ division.name }}</td>
+            </tr>
+            <tr>
+                <td>Должность</td>
+                <td>{{ employee.position }}</td>
+            </tr>
+            <tr>
+                <td>Оклад</td>
+                <td>{{ employee.wage }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock content %}

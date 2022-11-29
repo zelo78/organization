@@ -1,0 +1,35 @@
+{% extends "organization/base.html" %}
+{% load static %}
+
+{% block head_title %}Структура организации{% endblock head_title %}
+
+{% block scripts_in_head %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'app/js/jQueryFileExplorer.js' %}"></script>
+    <script type="text/javascript" src="{%  static 'app/js/split.min.js' %}"></script>
+    <link rel="stylesheet" href="{%  static 'app/css/jQueryFileExplorer.css' %}" type="text/css">
+    <script>
+        $(function(){
+            $("#organization_explorer").jQueryFileExplorer({
+                root: "0",
+                rootLabel: "Организация",
+                script: getPath,
+                fileScript: "/employee/"
+            });
+        });
+        function getPath(data)
+        {
+            let req = new XMLHttpRequest();
+            req.open("GET", "/divisions/?head="+data.path, false);
+            req.send(null)
+
+            return JSON.parse(req.responseText)
+        }
+    </script>
+{% endblock scripts_in_head %}
+
+{% block content %}
+    <h1>Структура отделов и список сотрудников</h1>
+    <div style="border: 1px solid silver; width: 100%; height: 600px;" id="organization_explorer" class="fileexplorer">
+    </div>
+{% endblock content %}

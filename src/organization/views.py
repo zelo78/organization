@@ -1,9 +1,10 @@
+from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from organization.models import Division
+from organization.models import Division, Employee
 
 
 class DivisionsDataView(APIView):
@@ -42,5 +43,12 @@ class DivisionsDataView(APIView):
 
 
 class EmployeeView(TemplateView):
-    def get(self, request, *args, **kwargs):
-        return Response(data={})
+    template_name = "organization/employee.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        employee_id = self.request.GET.get("path")
+        employee = get_object_or_404(Employee, id=employee_id)
+        context["employee"] = employee
+        context["division"] = employee.division
+        return context
